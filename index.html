@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#15283b">
+<title>Lovegobuy spreadsheet — rozmiary, zdjęcia QC i wybór | CAFANS</title>
+<meta name="description" content="Lovegobuy spreadsheet po polsku: wybierz kategorię, porównaj rozmiary i zdjęcia QC oraz sprawdź koszty przed zakupem. Praktyczny przewodnik CAFANS.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CAFANS">
+<meta property="og:title" content="Lovegobuy spreadsheet — wybieraj z dobrym rozeznaniem">
+<meta property="og:description" content="Kategorie odzieży i dodatków, porównywanie rozmiarów, kontrola zdjęć QC i planowanie kosztów. Niezależny przewodnik po polsku.">
+<meta property="og:image" content="https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png">
+<meta property="og:image:alt" content="Białe sneakersy Nike Air Force 1 ’07">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://static.nike.com" crossorigin>
+<!--
+  Plik: index.html. Niezależny przewodnik w języku polskim.
+  Nie ustawiono canonical ani og:url: adres tej strony nie został podany.
+  Po publikacji należy wskazać jej rzeczywisty, bezwzględny adres kanoniczny.
+
+  Temat główny: Lovegobuy spreadsheet.
+  Cztery tematy uzupełniające: Lovegobuy poradnik zakupowy;
+  Lovegobuy zdjęcia QC; Lovegobuy rozmiary; Lovegobuy koszty dostawy.
+  Pytania w artykułach i FAQ rozwijają ponad 20 intencji długiego ogona.
+
+  Podstawa redakcyjna: przegląd 10 witryn znalezionych dla tematu.
+  Bezpośredni odczyt Google był niedostępny; poniższa próba nie jest
+  potwierdzoną pierwszą dziesiątką wyników Google. Nie kopiowano tekstów,
+  liczników, cen ani deklaracji o weryfikacji produktów.
+  lovegobuy.io — kategorie, zdjęcia, kontekst ceny;
+  lovegobuy.cc — wyszukiwanie produktów, poradniki, linki źródłowe;
+  lovegobuysheet.org — rozpoczęcie zakupów i porównywanie ofert;
+  lovegobuywithqc.com — zdjęcia QC, warianty, pytania kupujących;
+  lovegobuy.net — lista kontrolna, rozmiary, transport;
+  lovegobuy.org — zawężanie kategorii i porównywanie wyników;
+  repsheet.net/spreadsheet/lovegobuy — kategorie i zdjęcia produktów;
+  rep.tools/guides/lovegobuy-spreadsheet — linki źródłowe i aktualność ofert;
+  lovegobuying.com — sekcje tematyczne i przewodniki;
+  spreadsheetlovegobuy.com — struktura katalogu i tematy QC.
+  Zdjęcia referencyjne pochodzą z serwerów marek, nie z ofert CAFANS.
+-->
+<style>
+:root{
+  color-scheme:light;
+  --ink:#15283b;
+  --paper:#f7f4ec;
+  --white:#fff;
+  --muted:#53616c;
+  --line:#d9ddd9;
+  --gold:#eac45f;
+  --blue:#e9eff1;
+  --max:1200px
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.7
+}
+a{color:inherit;text-underline-offset:4px}
+a:focus-visible,summary:focus-visible{
+  outline:3px solid #b87600;
+  outline-offset:5px
+}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{
+  line-height:1.16;
+  letter-spacing:-.035em;
+  text-wrap:balance
+}
+h1{font-size:clamp(2.5rem,5.4vw,4.8rem);font-weight:760}
+h2{font-size:clamp(1.8rem,3.3vw,2.8rem)}
+h3{font-size:1.22rem}
+p+p{margin-top:1rem}
+.wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+.eyebrow{
+  font-size:.74rem;
+  font-weight:750;
+  letter-spacing:.15em;
+  text-transform:uppercase
+}
+.muted{color:var(--muted)}
+.top{background:var(--ink);color:white}
+.top .wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding-block:17px
+}
+.logo{
+  font-size:1.28rem;
+  font-weight:800;
+  letter-spacing:-.05em;
+  text-decoration:none
+}
+.top-note{font-size:.77rem;color:#d8e2e8}
+.top-link{font-size:.85rem;font-weight:650}
+.categories{padding:25px 0 27px;border-bottom:1px solid var(--line)}
+.category-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:14px
+}
+.category-head h2{font-size:1.02rem;letter-spacing:0}
+.category-head p{font-size:.76rem;color:var(--muted)}
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px
+}
+.category-grid a{
+  min-height:65px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:white;
+  border:1px solid var(--line);
+  padding:10px 13px;
+  text-decoration:none;
+  font-size:.88rem;
+  font-weight:700;
+  line-height:1.35;
+  transition:background .15s
+}
+.category-grid a:hover{background:var(--gold)}
+.category-grid small{
+  font-size:.7rem;
+  color:var(--muted);
+  font-weight:450;
+  margin-top:4px
+}
+.hero{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:55px;
+  align-items:center;
+  padding-block:52px
+}
+.hero .eyebrow{margin-bottom:18px}
+.hero h1 span{
+  display:block;
+  font-size:.56em;
+  letter-spacing:-.035em;
+  margin-top:17px;
+  font-weight:480
+}
+.lead{
+  font-size:1.07rem;
+  color:var(--muted);
+  max-width:52ch;
+  margin-top:24px
+}
+.cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  min-height:48px;
+  padding:11px 22px;
+  background:var(--ink);
+  color:white;
+  text-decoration:none;
+  font-size:.89rem;
+  font-weight:700;
+  margin-top:26px
+}
+.cta:hover{background:#2b4b62}
+.cta.gold{background:var(--gold);color:var(--ink)}
+.hero-visual{position:relative;background:#eeefeb;overflow:hidden}
+.hero-visual img{width:100%;aspect-ratio:1;object-fit:contain}
+.hero-visual figcaption{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:14px 18px;
+  border-top:1px solid #d6d9d5;
+  background:#ecece7;
+  font-size:.73rem
+}
+.image-label{
+  position:absolute;
+  top:15px;
+  left:15px;
+  background:var(--gold);
+  padding:5px 10px;
+  font-size:.67rem;
+  font-weight:750;
+  letter-spacing:.1em
+}
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-bottom:65px
+}
+.quick>div{padding:24px 25px 25px 0}
+.quick>div+div{border-left:1px solid var(--line);padding-left:25px}
+.quick h2{font-size:1rem;letter-spacing:-.015em;margin-bottom:10px}
+.quick p{font-size:.88rem;color:var(--muted)}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:35px;
+  align-items:end;
+  margin-bottom:27px
+}
+.section-head .eyebrow{margin-bottom:12px}
+.section-head>p{font-size:.87rem;color:var(--muted);max-width:43ch}
+.editorial{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:var(--blue);
+  margin-bottom:18px
+}
+.editorial figure{background:#f1f1ef}
+.editorial img{
+  width:100%;
+  height:100%;
+  max-height:550px;
+  object-fit:contain
+}
+.editorial-copy{
+  padding:38px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:20px
+}
+.editorial-copy h3{font-size:1.8rem}
+.editorial-copy p{color:var(--muted);font-size:.94rem}
+.text-link{font-weight:700;font-size:.87rem}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery figure{background:white;border:1px solid var(--line)}
+.gallery img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:contain;
+  background:#f6f6f4
+}
+.gallery figcaption{padding:20px}
+.gallery .eyebrow{
+  color:var(--muted);
+  font-size:.65rem;
+  margin-bottom:9px
+}
+.gallery h3{font-size:1.1rem;margin-bottom:10px}
+.gallery p{font-size:.84rem;color:var(--muted);margin-bottom:14px}
+.image-note{
+  font-size:.76rem;
+  color:var(--muted);
+  margin-top:16px;
+  max-width:95ch
+}
+.journal{margin-top:72px}
+.article-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.article{
+  background:white;
+  border-top:4px solid var(--ink);
+  padding:30px
+}
+.article .eyebrow{color:var(--muted);margin-bottom:15px}
+.article h2{font-size:1.7rem;margin-bottom:16px}
+.article h3{
+  font-size:1rem;
+  letter-spacing:-.015em;
+  margin:23px 0 8px;
+  line-height:1.4
+}
+.article p{font-size:.91rem;color:var(--muted)}
+.article .text-link{display:inline-block;margin-top:23px}
+.table-section{margin-top:65px}
+.table-section h2{margin-bottom:15px}
+.table-section>p{
+  color:var(--muted);
+  font-size:.94rem;
+  margin-bottom:20px
+}
+.table-scroll{
+  overflow-x:auto;
+  border:1px solid var(--line);
+  background:white
+}
+table{
+  border-collapse:collapse;
+  min-width:590px;
+  width:100%;
+  font-size:.87rem;
+  text-align:left
+}
+caption{
+  text-align:left;
+  padding:17px 20px;
+  font-weight:700;
+  background:var(--blue)
+}
+th,td{
+  padding:17px 20px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top
+}
+thead th{
+  font-size:.73rem;
+  text-transform:uppercase;
+  letter-spacing:.07em
+}
+tbody th{width:22%;font-weight:650}
+tbody tr:last-child>*{border:0}
+.faq{
+  display:grid;
+  grid-template-columns:.7fr 1.3fr;
+  gap:65px;
+  margin-block:70px
+}
+.faq .eyebrow{margin-bottom:15px}
+.faq-intro p{color:var(--muted);font-size:.91rem;margin-top:18px}
+.faq details{border-bottom:1px solid var(--line);padding:19px 0}
+.faq details:first-child{padding-top:0}
+.faq summary{
+  font-weight:700;
+  cursor:pointer;
+  line-height:1.45;
+  padding-right:12px
+}
+.faq details p{font-size:.91rem;color:var(--muted);margin-top:12px}
+.closing{
+  background:var(--ink);
+  color:white;
+  padding:38px;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:center;
+  margin-bottom:48px
+}
+.closing h2{font-size:1.8rem}
+.closing p{
+  font-size:.9rem;
+  color:#d6e0e5;
+  margin-top:12px;
+  max-width:60ch
+}
+.closing .cta{flex-shrink:0;margin:0}
+footer{border-top:1px solid var(--line);padding-block:26px 35px}
+footer .wrap{display:flex;justify-content:space-between;gap:45px}
+footer p{font-size:.75rem;color:var(--muted);max-width:87ch}
+footer .logo{white-space:nowrap;font-size:1.15rem}
+.print-name{
+  font-size:.72rem;
+  letter-spacing:.06em;
+  color:var(--muted);
+  margin-top:10px
+}
+@media(min-width:900px){
+  .journal,.table-section,.faq{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 800px
+  }
+}
+@media(max-width:900px){
+  .category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero{gap:28px}
+  .hero h1{font-size:2.8rem}
+  .editorial-copy{padding:25px}
+  .faq{gap:35px;grid-template-columns:1fr 1.4fr}
+  .closing{padding:28px}
+}
+@media(max-width:640px){
+  .wrap{width:calc(100% - 32px)}
+  .top .wrap{padding-block:14px}
+  .top-note{display:none}
+  .category-head{display:block}
+  .category-head p{margin-top:5px}
+  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .category-grid a{padding:10px;font-size:.8rem;min-height:62px}
+  .categories{padding-block:20px}
+  .hero{grid-template-columns:1fr;padding-block:32px;gap:25px}
+  .hero h1{font-size:2.65rem}
+  .hero .lead{font-size:1rem}
+  .hero-visual img{aspect-ratio:1.15}
+  .hero-visual figcaption{font-size:.68rem}
+  .quick{grid-template-columns:1fr;margin-bottom:42px}
+  .quick>div,.quick>div+div{padding:18px 0;border-left:0}
+  .quick>div+div{border-top:1px solid var(--line)}
+  .section-head{display:block}
+  .section-head>p{margin-top:15px}
+  .editorial{grid-template-columns:1fr}
+  .editorial img{max-height:400px;aspect-ratio:1}
+  .editorial-copy{padding:25px}
+  .gallery{grid-template-columns:1fr;gap:14px}
+  .gallery figure{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    align-items:center
+  }
+  .gallery figcaption{padding:16px}
+  .gallery h3{font-size:1rem}
+  .gallery p{font-size:.79rem}
+  .article-grid{grid-template-columns:1fr}
+  .article{padding:25px}
+  .journal{margin-top:45px}
+  .table-section{margin-top:42px}
+  .faq{grid-template-columns:1fr;gap:26px;margin-block:45px}
+  .closing{display:block;padding:26px}
+  .closing .cta{margin-top:20px}
+  footer .wrap{display:block}
+  footer p{margin-top:14px}
+  .lead{max-width:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+@media print{
+  body{background:white;color:black}
+  .top,.categories,.closing{display:none}
+  .hero,.article-grid,.faq{display:block}
+  .hero-visual{max-width:300px}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .article{break-inside:avoid;margin-top:20px}
+  .journal,.table-section,.faq{content-visibility:visible}
+  a{color:black}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"CollectionPage",
+      "@id":"#strona",
+      "name":"Lovegobuy spreadsheet — rozmiary, zdjęcia QC i wybór",
+      "description":"Niezależny przewodnik po polsku: kategorie odzieży i dodatków, rozmiary, zdjęcia QC oraz koszty przed zakupem.",
+      "inLanguage":"pl",
+      "about":{
+        "@type":"Thing",
+        "name":"Lovegobuy spreadsheet"
+      },
+      "hasPart":[
+        {"@id":"#artykul-linki"},
+        {"@id":"#artykul-rozmiary"},
+        {"@id":"#artykul-qc"},
+        {"@id":"#artykul-koszty"},
+        {"@id":"#pytania"}
+      ]
+    },
+    {
+      "@type":"Article",
+      "@id":"#artykul-linki",
+      "headline":"Od znalezionej pozycji do sensownego porównania",
+      "inLanguage":"pl",
+      "description":"Jak czytać linki, rozróżniać warianty i sprawdzać aktualność pozycji na liście produktów.",
+      "isPartOf":{"@id":"#strona"}
+    },
+    {
+      "@type":"Article",
+      "@id":"#artykul-rozmiary",
+      "headline":"Rozmiar zaczyna się od centymetrów",
+      "inLanguage":"pl",
+      "description":"Jak porównywać rozmiary butów, wymiary bluz i koszulek oraz długość spodni.",
+      "isPartOf":{"@id":"#strona"}
+    },
+    {
+      "@type":"Article",
+      "@id":"#artykul-qc",
+      "headline":"Zdjęcia QC: najpierw szczegóły, potem decyzja",
+      "inLanguage":"pl",
+      "description":"Jak porównywać zdjęcia oferty ze zdjęciami otrzymanego egzemplarza i zauważać brakujące informacje.",
+      "isPartOf":{"@id":"#strona"}
+    },
+    {
+      "@type":"Article",
+      "@id":"#artykul-koszty",
+      "headline":"Budżet obejmuje więcej niż sam produkt",
+      "inLanguage":"pl",
+      "description":"Jak uwzględniać dostawę, pakowanie i brakujące pozycje przy porównywaniu kosztów.",
+      "isPartOf":{"@id":"#strona"}
+    },
+    {
+      "@type":"FAQPage",
+      "@id":"#pytania",
+      "inLanguage":"pl",
+      "isPartOf":{"@id":"#strona"},
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"Czym jest Lovegobuy spreadsheet?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"To określenie listy lub katalogu linków do produktów wyszukiwanych z myślą o zakupach przez Lovegobuy. Wpis pomaga znaleźć ofertę, ale jej aktualne warunki trzeba sprawdzić osobno."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Czy ta strona jest oficjalną stroną Lovegobuy?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nie. To niezależny przewodnik. Nie reprezentuje Lovegobuy ani pokazanych marek. Odnośniki prowadzą do CAFANS i wskazanych kategorii."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Czy zdjęcie QC potwierdza autentyczność produktu?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nie. Zdjęcie QC pomaga ocenić widoczne cechy konkretnego egzemplarza. Nie stanowi certyfikatu autentyczności, składu materiału ani trwałości."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Jak dobrać rozmiar, gdy w ofercie nie ma tabeli?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Poproś o wymiary i sposób ich wykonania. Bez tych danych nie zakładaj, że oznaczenie M, L lub numer EU odpowiada ubraniu albo butom, które już masz."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Czy cena z listy obejmuje wysyłkę do Polski?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nie zakładaj tego bez wyraźnego potwierdzenia. Sprawdź osobno cenę produktu, dostawę krajową, obsługę, transport międzynarodowy oraz ewentualne należności przy odbiorze."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Co zrobić, kiedy link otwiera inny wariant?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Porównaj identyfikator oferty, wybrany kolor i rozmiar. Jeżeli produkt lub sprzedawca się zmienił, potraktuj stronę jako nową ofertę i sprawdź ją od początku."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Czy zdjęcia marek oznaczają dostępność w CAFANS?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nie. To zdjęcia referencyjne ilustrujące poradnik. Nie potwierdzają dostępności, autentyczności ani zgodności produktów w zewnętrznym katalogu z pokazanym modelem."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/bzayb/">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="https://www.cafans.com" aria-label="CAFANS — przejdź do katalogu">cafans.com</a>
+    <span class="top-note">NOTATNIK ZAKUPOWY · WYDANIE POLSKIE</span>
+    <a class="top-link" href="https://www.cafans.com">Otwórz katalog ↗</a>
+  </div>
+</header>
+
+<main>
+  <nav class="categories" aria-label="Kategorie produktów">
+    <div class="wrap">
+      <div class="category-head">
+        <h2>Zacznij od kategorii</h2>
+        <p>Wybierz rodzaj produktu i przejdź do katalogu CAFANS.</p>
+      </div>
+      <div class="category-grid">
+        <a href="https://cafans.com/category-911-Shoes.html">
+          <span lang="en">Shoes ↗</span>
+          <small>Buty i sneakersy</small>
+        </a>
+        <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">
+          <span lang="en">Hoodies/Sweaters ↗</span>
+          <small>Bluzy i swetry</small>
+        </a>
+        <a href="https://cafans.com/category-913-T-Shirts.html">
+          <span lang="en">T-Shirts ↗</span>
+          <small>Koszulki</small>
+        </a>
+        <a href="https://cafans.com/category-914-Jackets.html">
+          <span lang="en">Jackets ↗</span>
+          <small>Kurtki</small>
+        </a>
+        <a href="https://cafans.com/category-915-Pants%2FShorts.html">
+          <span lang="en">Pants/Shorts ↗</span>
+          <small>Spodnie i szorty</small>
+        </a>
+        <a href="https://cafans.com/category-916-Headwear.html">
+          <span lang="en">Headwear ↗</span>
+          <small>Nakrycia głowy</small>
+        </a>
+        <a href="https://cafans.com/category-917-Sets.html">
+          <span lang="en">Sets ↗</span>
+          <small>Zestawy</small>
+        </a>
+        <a href="https://cafans.com/category-918-underwear%2Funderpants.html">
+          <span lang="en">Underwear/underpants ↗</span>
+          <small>Bielizna</small>
+        </a>
+        <a href="https://cafans.com/category-919-Jersey.html">
+          <span lang="en">Jersey ↗</span>
+          <small>Koszulki sportowe</small>
+        </a>
+        <a href="https://cafans.com/category-920-Accessories.html">
+          <span lang="en">Accessories ↗</span>
+          <small>Akcesoria i dodatki</small>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero" aria-labelledby="tytul">
+      <div>
+        <p class="eyebrow">Styl z bliska / decyzje z głową</p>
+        <h1 id="tytul">Lovegobuy spreadsheet<span>Najpierw sprawdź.<br>Potem wybierz.</span></h1>
+        <p class="lead">Lista produktów to początek poszukiwań. Dobry wybór wymaga jeszcze wymiarów, zdjęć właściwego wariantu i pełnego kosztu. Ten niezależny poradnik pomoże Ci uporządkować te informacje.</p>
+        <a class="cta" href="https://www.cafans.com">Przeglądaj CAFANS <span aria-hidden="true">↗</span></a>
+        <p class="print-name">Rozmiary · zdjęcia QC · linki do produktów · koszty dostawy</p>
+      </div>
+      <figure class="hero-visual">
+        <span class="image-label">DETAL / 01</span>
+        <img
+          src="https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png"
+          width="936"
+          height="936"
+          alt="Białe sneakersy Nike Air Force 1 ’07 z białą podeszwą"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async">
+        <figcaption>
+          <span>Nike Air Force 1 ’07</span>
+          <span>Zdjęcie referencyjne, nie oferta</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="quick" aria-label="Najważniejsze odpowiedzi przed zakupem">
+      <div>
+        <h2>Co porównać jako pierwsze?</h2>
+        <p>Ten sam model, wariant i rozmiar. Podobne zdjęcia nie oznaczają identycznego produktu.</p>
+      </div>
+      <div>
+        <h2>Co mówi zdjęcie QC?</h2>
+        <p>Pokazuje widoczne szczegóły egzemplarza. Nie zastępuje pomiarów ani potwierdzenia autentyczności.</p>
+      </div>
+      <div>
+        <h2>Kiedy oceniać budżet?</h2>
+        <p>Po uwzględnieniu dostawy i pozostałych opłat, a nie wyłącznie ceny zapisanej przy linku.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="detale">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Przegląd wizualny</p>
+          <h2 id="detale">Pięć marek.<br>Różne rzeczy do sprawdzenia.</h2>
+        </div>
+        <p>Buty, odzież, nakrycia głowy i biżuteria wymagają innych pytań. Zobacz, na czym skupić uwagę przy porównywaniu ofert.</p>
+      </div>
+
+      <div class="editorial">
+        <figure>
+          <img
+            src="https://assets.christiandior.com/is/image/diorprod/613J668B0677C080_E01-1?wid=640&amp;hei=720&amp;qlt=75"
+            width="640"
+            height="720"
+            alt="Biała koszulka Christian Dior Couture z napisem na piersi"
+            loading="lazy"
+            decoding="async">
+        </figure>
+        <div class="editorial-copy">
+          <p class="eyebrow">Dior / odzież</p>
+          <h3>Jak porównać krój koszulki przed zakupem?</h3>
+          <p>Zacznij od szerokości pod pachami, ramion i długości. Zestaw je z koszulką, którą lubisz nosić. Zdjęcie na wieszaku pomaga obejrzeć fason, lecz nie pokazuje, jak materiał zachowa się na Twojej sylwetce.</p>
+          <p>W przypadku sneakersów Nike analogicznym punktem odniesienia jest długość stopy i tabela konkretnego modelu. Nie przenoś automatycznie rozmiaru między różnymi fasonami.</p>
+          <a class="text-link" href="https://www.cafans.com">Znajdź produkty do porównania ↗</a>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <img
+            src="https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1553862603/481774_3HC65_2140_001_100_0000_Light-childrens-original-gg-canvas-hat.jpg"
+            width="490"
+            height="490"
+            alt="Dziecięca czapka Gucci Original GG z beżowo-brązowym wzorem"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <p class="eyebrow">Gucci / nakrycia głowy</p>
+            <h3>Jak dobrać obwód czapki?</h3>
+            <p>Sprawdź obwód i zakres regulacji. Ten model referencyjny jest dziecięcy — sama fotografia nie określa rozmiaru dla dorosłych.</p>
+            <a class="text-link" href="https://www.cafans.com">Przejdź do katalogu ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="https://assets.hermes.com/is/image/hermesproduct/le-pommier-sellier-scarf-90--004307S%2006-front-wm-3-0-0-800-800_g.jpg"
+            width="480"
+            height="480"
+            alt="Apaszka Hermès Le Pommier Sellier rozłożona płasko, z dekoracyjnym wzorem"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <p class="eyebrow">Hermès / dodatki</p>
+            <h3>Co sprawdzić w opisie apaszki?</h3>
+            <p>Wymiary, deklarowany skład i wykończenie brzegów. Wygląd wzoru na zdjęciu nie potwierdza rodzaju włókna.</p>
+            <a class="text-link" href="https://www.cafans.com">Obejrzyj katalog ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-iconic-bracelet--M8526F_PM1_Interior%20view.png?hei=480&amp;wid=480"
+            width="480"
+            height="480"
+            alt="Bransoletka Louis Vuitton LV Iconic z paskiem Monogram i złocistymi detalami"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <p class="eyebrow">Louis Vuitton / biżuteria</p>
+            <h3>Jak dobrać długość bransoletki?</h3>
+            <p>Zmierz nadgarstek i sprawdź zakres zapięcia. Zapytaj o materiał części stykających się ze skórą, szczególnie przy nadwrażliwości.</p>
+            <a class="text-link" href="https://www.cafans.com">Sprawdź katalog ↗</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="image-note">Fotografie są materiałem referencyjnym z serwerów marek. Nie przedstawiają zweryfikowanych ofert CAFANS i nie potwierdzają ich dostępności. Nazwy marek służą identyfikacji pokazanych modeli; strona nie jest z nimi oficjalnie powiązana.</p>
+    </section>
+
+    <section class="journal" aria-labelledby="poradniki">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Poradniki zakupowe / cztery tematy</p>
+          <h2 id="poradniki">Mniej zgadywania.<br>Więcej konkretów.</h2>
+        </div>
+        <p>Przeczytaj przed przejściem od inspiracji do zamówienia. Zapisuj brakujące informacje zamiast zastępować je przypuszczeniami.</p>
+      </div>
+
+      <div class="article-grid">
+        <article class="article" id="artykul-linki" aria-labelledby="linki-tytul">
+          <p class="eyebrow">01 / Linki i warianty</p>
+          <h2 id="linki-tytul">Od znalezionej pozycji do sensownego porównania</h2>
+          <p>Traktuj Lovegobuy spreadsheet jak notatnik odkryć. Najbardziej przydatny wpis pozwala wrócić do konkretnej oferty i sprawdzić, dlaczego trafiła na Twoją listę.</p>
+
+          <h3>Jak sprawdzić aktualność linku do produktu?</h3>
+          <p>Otwórz ofertę i porównaj nazwę, zdjęcia oraz identyfikator produktu. Sam fakt, że strona się ładuje, nie oznacza, że nadal dotyczy tej samej rzeczy.</p>
+
+          <h3>Jak odróżnić kolor od wersji produktu?</h3>
+          <p>Przeczytaj pełne nazwy opcji. Inny wariant może zmieniać nie tylko kolor, lecz także materiał, zestaw lub sposób wykończenia.</p>
+
+          <h3>Jak porównywać podobne oferty?</h3>
+          <p>Zapisz obok siebie wariant, wymiary, zawartość zestawu i datę sprawdzenia. Jeśli jednej informacji brakuje, oznacz ją jako nieznaną.</p>
+
+          <a class="text-link" href="https://www.cafans.com">Rozpocznij przeglądanie ↗</a>
+        </article>
+
+        <article class="article" id="artykul-rozmiary" aria-labelledby="rozmiary-tytul">
+          <p class="eyebrow">02 / Rozmiary</p>
+          <h2 id="rozmiary-tytul">Rozmiar zaczyna się od centymetrów</h2>
+          <p>Metka to skrót, a nie kompletny opis dopasowania. Porównuj dane konkretnej oferty z własnymi pomiarami i wygodnym ubraniem.</p>
+
+          <h3>Jak dobrać rozmiar sneakersów z tabeli?</h3>
+          <p>Zmierz obie stopy i sprawdź, czy tabela podaje długość stopy, czy wkładki. Te wartości nie oznaczają tego samego.</p>
+
+          <h3>Jak porównać wymiary bluzy i koszulki?</h3>
+          <p>Zmierz ubranie rozłożone płasko. Zwróć uwagę, czy szerokość jest podana jednostronnie, czy jako pełny obwód.</p>
+
+          <h3>Jak ocenić długość spodni i szortów?</h3>
+          <p>Porównaj pas, stan oraz długość nogawki. Doprecyzuj, czy pomiar wykonano po zewnętrznym szwie, czy od kroku.</p>
+
+          <a class="text-link" href="https://www.cafans.com">Porównaj informacje w katalogu ↗</a>
+        </article>
+
+        <article class="article" id="artykul-qc" aria-labelledby="qc-tytul">
+          <p class="eyebrow">03 / Zdjęcia QC</p>
+          <h2 id="qc-tytul">Zdjęcia QC: najpierw szczegóły, potem decyzja</h2>
+          <p>QC oznacza kontrolę jakości. Najwięcej mówią zdjęcia dotyczące właściwego zamówienia i wariantu; zdjęcia innego kupującego są jedynie dodatkowym punktem odniesienia.</p>
+
+          <h3>Jak porównać zdjęcia QC ze zdjęciem oferty?</h3>
+          <p>Zacznij od koloru, liczby elementów i ogólnego kształtu. Następnie przyjrzyj się szwom, zapięciom i widocznym uszkodzeniom.</p>
+
+          <h3>Jak poprosić o dodatkowe zdjęcia detali?</h3>
+          <p>Napisz, co ma być widoczne: podeszwa, metka, suwak lub pomiar z miarką. Konkretne pytanie jest użyteczniejsze niż prośba o ocenę „czy wszystko jest dobrze”.</p>
+
+          <h3>Co zrobić przy różnicy koloru na zdjęciach?</h3>
+          <p>Uwzględnij oświetlenie i ekran, ale nie ignoruj rozbieżności. Poproś o ujęcie w neutralnym świetle przed podjęciem decyzji.</p>
+
+          <a class="text-link" href="https://www.cafans.com">Wróć do przeglądania produktów ↗</a>
+        </article>
+
+        <article class="article" id="artykul-koszty" aria-labelledby="koszty-tytul">
+          <p class="eyebrow">04 / Budżet i dostawa</p>
+          <h2 id="koszty-tytul">Budżet obejmuje więcej niż sam produkt</h2>
+          <p>Nie porównuj kwoty za sam przedmiot z kwotą obejmującą transport. Najpierw ustal, co rzeczywiście zawiera każda wycena.</p>
+
+          <h3>Jak oszacować łączny koszt zamówienia?</h3>
+          <p>Zapisz cenę produktu, transport krajowy, obsługę, transport międzynarodowy oraz ewentualne należności. Sprawdź też walutę i koszty przewalutowania.</p>
+
+          <h3>Co sprawdzić w wycenie przesyłki?</h3>
+          <p>Zapytaj o wagę rozliczeniową, wymiary paczki i zakres usługi. Nie zakładaj, że identyczna masa oznacza taki sam koszt dla każdego opakowania.</p>
+
+          <h3>Co ustalić przed połączeniem produktów w paczkę?</h3>
+          <p>Potwierdź sposób pakowania i ochronę delikatnych dodatków. Sprawdź ograniczenia wybranej trasy oraz warunki ewentualnego zwrotu przed wysyłką.</p>
+
+          <a class="text-link" href="https://www.cafans.com">Przejdź do CAFANS ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="table-section" aria-labelledby="tabela-tytul">
+      <h2 id="tabela-tytul">Zapisz dane, które zmieniają decyzję</h2>
+      <p>Prosta lista porównawcza wystarczy. Uzupełniaj ją informacjami z aktualnej oferty, a nie z samego zdjęcia.</p>
+      <div class="table-scroll" role="region" aria-label="Tabela kontrolna przed zakupem" tabindex="0">
+        <table>
+          <caption>Co sprawdzić w zależności od kategorii</caption>
+          <thead>
+            <tr>
+              <th scope="col">Produkt</th>
+              <th scope="col">Dane do zapisania</th>
+              <th scope="col">Sygnał do zadania pytania</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Buty</th>
+              <td>Model, wariant, rozmiar i opis pomiaru</td>
+              <td>Tabela miesza długość stopy i wkładki</td>
+            </tr>
+            <tr>
+              <th scope="row">Odzież</th>
+              <td>Szerokość, długość, fason, deklarowany skład</td>
+              <td>Wyłącznie oznaczenia S, M, L bez wymiarów</td>
+            </tr>
+            <tr>
+              <th scope="row">Nakrycia głowy</th>
+              <td>Obwód, głębokość, zakres regulacji</td>
+              <td>Brak informacji o rozmiarze dziecięcym lub dorosłym</td>
+            </tr>
+            <tr>
+              <th scope="row">Biżuteria i dodatki</th>
+              <td>Wymiary, zapięcie, materiał i zawartość zestawu</td>
+              <td>Opis nie wyjaśnia materiału ani skali przedmiotu</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="faq" id="pytania" aria-labelledby="faq-tytul">
+      <div class="faq-intro">
+        <p class="eyebrow">Odpowiedzi bez skrótów</p>
+        <h2 id="faq-tytul">Zanim podejmiesz decyzję</h2>
+        <p>Najczęstsze pytania o Lovegobuy spreadsheet, zdjęcia, rozmiary i informacje potrzebne przed zakupem.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Czym jest Lovegobuy spreadsheet?</summary>
+          <p>To określenie listy lub katalogu linków do produktów wyszukiwanych z myślą o zakupach przez Lovegobuy. Wpis pomaga znaleźć ofertę, ale jej aktualne warunki trzeba sprawdzić osobno.</p>
+        </details>
+
+        <details>
+          <summary>Czy ta strona jest oficjalną stroną Lovegobuy?</summary>
+          <p>Nie. To niezależny przewodnik. Nie reprezentuje Lovegobuy ani pokazanych marek. Odnośniki prowadzą do CAFANS i wskazanych kategorii.</p>
+        </details>
+
+        <details>
+          <summary>Czy zdjęcie QC potwierdza autentyczność produktu?</summary>
+          <p>Nie. Zdjęcie QC pomaga ocenić widoczne cechy konkretnego egzemplarza. Nie stanowi certyfikatu autentyczności, składu materiału ani trwałości.</p>
+        </details>
+
+        <details>
+          <summary>Jak dobrać rozmiar, gdy w ofercie nie ma tabeli?</summary>
+          <p>Poproś o wymiary i sposób ich wykonania. Bez tych danych nie zakładaj, że oznaczenie M, L lub numer EU odpowiada ubraniu albo butom, które już masz.</p>
+        </details>
+
+        <details>
+          <summary>Czy cena z listy obejmuje wysyłkę do Polski?</summary>
+          <p>Nie zakładaj tego bez wyraźnego potwierdzenia. Sprawdź osobno cenę produktu, dostawę krajową, obsługę, transport międzynarodowy oraz ewentualne należności przy odbiorze.</p>
+        </details>
+
+        <details>
+          <summary>Co zrobić, kiedy link otwiera inny wariant?</summary>
+          <p>Porównaj identyfikator oferty, wybrany kolor i rozmiar. Jeżeli produkt lub sprzedawca się zmienił, potraktuj stronę jako nową ofertę i sprawdź ją od początku.</p>
+        </details>
+
+        <details>
+          <summary>Czy zdjęcia marek oznaczają dostępność w CAFANS?</summary>
+          <p>Nie. To zdjęcia referencyjne ilustrujące poradnik. Nie potwierdzają dostępności, autentyczności ani zgodności produktów w zewnętrznym katalogu z pokazanym modelem.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="dalej">
+      <div>
+        <h2 id="dalej">Wybierz kategorię. Sprawdź szczegóły.</h2>
+        <p>Przejdź do katalogu z konkretnym planem: model, wariant, wymiary i pełny koszt. To dobry początek świadomego porównania.</p>
+      </div>
+      <a class="cta gold" href="https://www.cafans.com">Przejdź do katalogu <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="https://www.cafans.com">cafans.com</a>
+    <p>Niezależny materiał informacyjny po polsku. Strona nie przyjmuje zamówień ani płatności. Aktualne warunki zakupu sprawdzaj u podmiotu obsługującego transakcję. Znaki towarowe należą do ich właścicieli.</p>
+  </div>
+</footer>
+</body>
+</html>
